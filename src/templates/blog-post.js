@@ -1,9 +1,10 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Tags } from "../components/Tags"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -18,6 +19,18 @@ const BlogPostTemplate = ({
         itemScope
         itemType="http://schema.org/Article"
       >
+        <div
+          style={{
+            marginBottom: "16px",
+          }}
+        >
+          {post.frontmatter.preview && (
+            <GatsbyImage
+              image={getImage(post.frontmatter.preview)}
+              alt={post.frontmatter.description}
+            />
+          )}
+        </div>
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
@@ -26,6 +39,7 @@ const BlogPostTemplate = ({
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
+        {post?.frontmatter?.tags && <Tags tags={post.frontmatter.tags} />}
         <hr />
         <footer>
           <Bio />
@@ -61,15 +75,6 @@ const BlogPostTemplate = ({
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
-  return (
-    <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
-    />
-  )
-}
-
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
@@ -91,6 +96,12 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        preview {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

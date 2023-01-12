@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -28,9 +29,14 @@ const BlogIndex = ({ data, location }) => {
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
+          const previewImg = getImage(post.frontmatter.preview) || null
 
           return (
             <li key={post.fields.slug}>
+              {previewImg && (
+                <GatsbyImage className="post-preview" image={previewImg} />
+              )}
+
               <article
                 className="post-list-item"
                 itemScope
@@ -87,6 +93,11 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          preview {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
