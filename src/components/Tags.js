@@ -1,8 +1,7 @@
 import * as React from "react"
 
-export const Tags = ({ tags }) => {
+export default function Tags({ tags }) {
   const tagList = tags.split(",").map(tag => tag.trim())
-
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
       {tagList.length > 0 &&

@@ -4,7 +4,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
-import { Tags } from "../components/Tags"
+import Tags from "../components/Tags"
+import Seo from "../components/seo"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -76,6 +77,15 @@ const BlogPostTemplate = ({
 }
 
 export default BlogPostTemplate
+
+export const Head = ({ data: { markdownRemark: post } }) => {
+  return (
+    <Seo
+      title={post.frontmatter.title}
+      description={post.frontmatter.description || post.excerpt}
+    />
+  )
+}
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
