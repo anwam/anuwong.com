@@ -4,8 +4,8 @@ date: 2023-01-12T02:02:32.978Z
 description: พยายามหาเครื่องมือสำหรับจัดการบทความที่ใช้ง่ายและเราคุ้นเคยอยู่แล้ว
   ก็เลยมาจบที่ Markdown + Front Matter
 preview: ./using-front-matter-with-gatsby.png
-lastmod: 2023-01-12T13:25:50.375Z
-tags: tech, web-development, content-writing
+lastmod: 2023-01-13T01:08:56.167Z
+tags: tech,web-development,content-writing
 ---
 
 พยายามหาเครื่องมือสำหรับจัดการบทความที่ใช้ง่ายและเราคุ้นเคยอยู่แล้ว ก็เลยมาจบที่ Markdown + Front Matter ซึ่งโชคดีมากที่ Gatsby มี Starter Template ที่ Support Markdown อยู่แล้ว ก็เอามาใช้ต่อยอดได้เลยทันที

@@ -2,8 +2,9 @@
 title: Hello World
 date: 2015-05-01T22:12:03.284Z
 description: Hello World
+draft: true
 preview: ./salty_egg.jpg
-lastmod: 2023-01-12T02:21:05.299Z
+lastmod: 2023-01-20T00:27:03.080Z
 ---
 
 This is my first post on my new fake blog! How exciting!

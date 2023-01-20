@@ -68,5 +68,20 @@
       "title": "blog",
       "path": "[[workspace]]/content/blog"
     }
-  ]
+  ],
+  "frontMatter.content.snippets": {
+    "blog": {
+      "description": "",
+      "body": [
+        "title: ",
+        "date: ",
+        "description: ",
+        "preview: ",
+        "lastmod: 2023-01-13T01:08:56.167Z",
+        "tags:"
+      ],
+      "fields": []
+    }
+  },
+  "frontMatter.content.autoUpdateDate": true
 }

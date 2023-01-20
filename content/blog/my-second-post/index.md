@@ -1,6 +1,8 @@
 ---
 title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+draft: true
+date: 2015-05-06T23:46:37.121Z
+lastmod: 2023-01-20T00:27:14.309Z
 ---
 
 Wow! I love blogging so much already.

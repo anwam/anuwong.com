@@ -41,6 +41,7 @@ const BlogIndex = ({ data, location }) => {
                 className="post-list-item"
                 itemScope
                 itemType="http://schema.org/Article"
+                style={{ border: "1px 0 0 solid #000" }}
               >
                 <header>
                   <h2>
@@ -83,7 +84,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(
+      sort: { frontmatter: { date: DESC } }
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       nodes {
         excerpt
         fields {
@@ -95,9 +99,14 @@ export const pageQuery = graphql`
           description
           preview {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                aspectRatio: 2.3333333
+                transformOptions: { fit: COVER }
+              )
             }
           }
+          tags
         }
       }
     }

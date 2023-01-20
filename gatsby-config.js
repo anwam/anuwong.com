@@ -11,11 +11,11 @@ module.exports = {
   siteMetadata: {
     title: `Anuwong Blog`,
     author: {
-      name: `anwam`,
-      summary: `who loves to learn and share knowledge`,
+      name: `Anuwong`,
+      summary: `Loving to read, learn and share everything I've learned.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `http://anuwong.com`,
+    siteUrl: `https://anuwong.com`,
     social: {
       twitter: `swerbillionaire`,
     },
@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
         name: `blog`,
+        path: `${__dirname}/content/blog`,
       },
     },
     {
@@ -102,7 +102,7 @@ module.exports = {
               }
             }`,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "Anuwong Blog RSS Feed",
           },
         ],
       },

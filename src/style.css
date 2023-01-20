@@ -257,10 +257,6 @@ a:focus {
   margin: 0;
 }
 
-.post-preview {
-  aspect-ratio: 21/9;
-}
-
 .post-list-item {
   margin-bottom: var(--spacing-8);
   margin-top: var(--spacing-8);
