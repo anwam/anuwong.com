@@ -33,16 +33,19 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li key={post.fields.slug}>
-              {previewImg && (
-                <GatsbyImage className="post-preview" image={previewImg} />
-              )}
-
               <article
                 className="post-list-item"
                 itemScope
                 itemType="http://schema.org/Article"
-                style={{ border: "1px 0 0 solid #000" }}
               >
+                {previewImg && (
+                  <GatsbyImage
+                    className="post-preview"
+                    image={previewImg}
+                    alt={data.site.siteMetadata.title || "Preview image"}
+                  />
+                )}
+
                 <header>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
@@ -101,7 +104,7 @@ export const pageQuery = graphql`
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH
-                aspectRatio: 2.3333333
+                aspectRatio: 1.7777778
                 transformOptions: { fit: COVER }
               )
             }
