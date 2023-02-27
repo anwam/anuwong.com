@@ -6,7 +6,7 @@ date: 2023-02-04T08:42:51.220Z
 preview: ../golang.png
 draft: false
 tags: golang,testing,unit testing,mock
-lastmod: 2023-02-05T04:39:31.198Z
+lastmod: 2023-02-27T15:19:43.952Z
 ---
 
 สำหรับการทำงานกับข้อมูลที่เป็น JSON ในภาษา Go แนวทางที่นิยมที่สุดก็คือการใช้ built-in package ที่ชื่อ `json` ในการ Encode / Decode ซึ่งโดยทั่วไปแล้วมักจะทำผ่านฟังก์ชั่น `json.Marshal` และ `json.Unmarshal` นั่นเอง
@@ -30,7 +30,6 @@ lastmod: 2023-02-05T04:39:31.198Z
     // do something great
     // then you got `dataBytes`
     v := new(someType)
-    //  highlight-range{1-4}
     if err := json.Unmarshal(dataBytes, v); err != nil { // how to make this error?
       log.Printf("unmarshal json error : %s", err.Error())
       return nil, err
@@ -59,7 +58,6 @@ lastmod: 2023-02-05T04:39:31.198Z
     // then you got `dataBytes`
     v := new(someType)
     // use our self-declared function instead from json package
-    //  highlight-next-line
     if err := jsonUnmarshal(dataBytes, v); err != nil {
       log.Printf("unmarshal json error : %s", err.Error())
       return nil, err

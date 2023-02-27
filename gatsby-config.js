@@ -12,7 +12,7 @@ module.exports = {
     title: `Anuwong Blog`,
     author: {
       name: `Anuwong`,
-      summary: `Loving to read, learn and share everything I've learned.`,
+      summary: "a lazy developer who uses AI to do his work",
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://anuwong.com`,
@@ -21,6 +21,7 @@ module.exports = {
     },
   },
   plugins: [
+    "gatsby-plugin-postcss",
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
