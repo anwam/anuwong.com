@@ -31,9 +31,18 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <div className="bio">
+    <div className="flex flex-col justify-center max-w-2xl mx-auto mb-6">
+      {author?.name && (
+        <p className="p-0 m-0 mb-6">
+          Written by <strong>{author.name}</strong> {author?.summary || null}
+          {` `}
+          <a href={`https://twitter.com/${social?.twitter || ``}`}>
+            You should follow them on Twitter
+          </a>
+        </p>
+      )}
       <StaticImage
-        className="bio-avatar"
+        className="mr-2 rounded-full"
         layout="fixed"
         formats={["auto", "webp", "avif"]}
         src="../images/profile-pic.jpeg"
@@ -42,15 +51,6 @@ const Bio = () => {
         quality={95}
         alt="Profile picture"
       />
-      {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
-        </p>
-      )}
     </div>
   )
 }

@@ -8,7 +8,7 @@ const Layout = ({ location, title, children }) => {
 
   if (isRootPath) {
     header = (
-      <h1 className="main-heading">
+      <h1 className="m-0 text-xl">
         <Link to="/">{title}</Link>
       </h1>
     )
@@ -21,7 +21,10 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
+    <div
+      className="container max-w-5xl pt-6 mx-auto"
+      data-is-root-path={isRootPath}
+    >
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>

@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -26,31 +25,19 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
-      <ol
-        style={{ listStyle: `none` }}
-        className="flex flex-col md:flex-row gap-4"
-      >
+      <ol style={{ listStyle: `none` }} className="flex flex-col gap-6">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
-          const previewImg = getImage(post.frontmatter.preview) || null
 
           return (
-            <li className="bg-sky-900 w-full md:w-1/3" key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                {previewImg && (
-                  <GatsbyImage
-                    className="post-preview overflow-hidden"
-                    image={previewImg}
-                    alt={data.site.siteMetadata.title || "Preview image"}
-                  />
-                )}
-                <div className="p-4">
+            <li
+              className="w-full max-w-2xl p-6 mx-auto bg-sky-900 rounded-xl"
+              key={post.fields.slug}
+            >
+              <article itemScope itemType="http://schema.org/Article">
+                <div className="flex flex-col gap-3">
                   <header>
-                    <h2>
+                    <h2 className="m-0 text-2xl">
                       <Link to={post.fields.slug} itemProp="url">
                         <span itemProp="headline">{title}</span>
                       </Link>
@@ -104,16 +91,6 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
-          preview {
-            childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                aspectRatio: 1.7777778
-                transformOptions: { fit: COVER }
-              )
-            }
-          }
-          tags
         }
       }
     }
