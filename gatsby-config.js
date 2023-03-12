@@ -12,9 +12,9 @@ module.exports = {
     title: `Anuwong Blog`,
     author: {
       name: `Anuwong`,
-      summary: "a lazy developer who uses AI to do his work",
+      summary: `write to learn`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `my journey to become a better developer`,
     siteUrl: `https://anuwong.com`,
     social: {
       twitter: `swerbillionaire`,

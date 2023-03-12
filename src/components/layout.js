@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -25,7 +26,20 @@ const Layout = ({ location, title, children }) => {
       className="container max-w-5xl pt-6 mx-auto"
       data-is-root-path={isRootPath}
     >
-      <header className="global-header">{header}</header>
+      <header className="flex flex-row items-center gap-5 global-header">
+        <StaticImage
+          className="rounded-full "
+          layout="fixed"
+          formats={["auto", "webp", "avif"]}
+          src="../images/profile-pic.jpeg"
+          width={50}
+          height={50}
+          quality={95}
+          alt="Profile picture"
+        />
+        {header}
+      </header>
+
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

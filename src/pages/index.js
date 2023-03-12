@@ -25,35 +25,38 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
-      <ol style={{ listStyle: `none` }} className="flex flex-col gap-6">
+      <ol style={{ listStyle: `none` }} className="flex flex-col gap-5">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
             <li
-              className="w-full max-w-2xl p-6 mx-auto bg-sky-900 rounded-xl"
+              className="w-full max-w-2xl p-6 mx-auto transition-transform text-sky-100 bg-sky-900 rounded-xl hover:scale-105 hover:cursor-pointer"
               key={post.fields.slug}
             >
-              <article itemScope itemType="http://schema.org/Article">
-                <div className="flex flex-col gap-3">
-                  <header>
-                    <h2 className="m-0 text-2xl">
-                      <Link to={post.fields.slug} itemProp="url">
+              <Link to={post.fields.slug} itemProp="url">
+                <article itemScope itemType="http://schema.org/Article">
+                  <div className="flex flex-col gap-3">
+                    <header>
+                      <h2 className="m-0 text-2xl">
                         <span itemProp="headline">{title}</span>
-                      </Link>
-                    </h2>
-                    <small>{post.frontmatter.date}</small>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.description || post.excerpt,
-                      }}
-                      itemProp="description"
-                    />
-                  </section>
-                </div>
-              </article>
+                      </h2>
+                      <small className="text-sky-200">
+                        {post.frontmatter.date}
+                      </small>
+                    </header>
+                    <section>
+                      <p
+                        className="text-sky-200"
+                        dangerouslySetInnerHTML={{
+                          __html: post.frontmatter.description || post.excerpt,
+                        }}
+                        itemProp="description"
+                      />
+                    </section>
+                  </div>
+                </article>
+              </Link>
             </li>
           )
         })}

@@ -41,7 +41,6 @@ const BlogPostTemplate = ({
           itemProp="articleBody"
         />
         {post?.frontmatter?.tags && <Tags tags={post.frontmatter.tags} />}
-        <hr />
         <footer>
           <Bio />
         </footer>
