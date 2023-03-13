@@ -2,10 +2,10 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Bio from "../components/Bio"
 import Tags from "../components/Tags"
-import Seo from "../components/seo"
+import Seo from "../components/Seo"
+import Layout from "../components/Layout"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -16,55 +16,49 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <article
-        className="blog-post"
+        className="w-full mx-auto my-5 prose"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <div
-          style={{
-            marginBottom: "16px",
-          }}
-        >
-          {post.frontmatter.preview && (
+        {post.frontmatter.preview && (
+          <div className="mb-5">
             <GatsbyImage
               image={getImage(post.frontmatter.preview)}
               alt={post.frontmatter.description}
             />
-          )}
-        </div>
+          </div>
+        )}
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <span>{post.frontmatter.date}</span>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         {post?.frontmatter?.tags && <Tags tags={post.frontmatter.tags} />}
-        <footer>
-          <Bio />
-        </footer>
       </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+      <Bio />
+      <nav className="my-5">
+        <ul className="flex flex-wrap justify-between p-0 list-none">
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link
+                className="gap-2 btn btn-secondary btn-outline text-secondary-content"
+                to={previous.fields.slug}
+                rel="prev"
+              >
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link
+                className="gap-2 btn btn-secondary btn-outline text-secondary-content"
+                to={next.fields.slug}
+                rel="next"
+              >
                 {next.frontmatter.title} →
               </Link>
             )}
@@ -113,7 +107,10 @@ export const pageQuery = graphql`
         tags
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: markdownRemark(
+      id: { eq: $previousPostId }
+      frontmatter: { draft: { ne: true } }
+    ) {
       fields {
         slug
       }
@@ -121,7 +118,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: markdownRemark(
+      id: { eq: $nextPostId }
+      frontmatter: { draft: { ne: true } }
+    ) {
       fields {
         slug
       }

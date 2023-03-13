@@ -13,6 +13,8 @@
     "@fontsource/merriweather": "^4.5.14",
     "@fontsource/montserrat": "^4.5.13",
     "@fontsource/sarabun": "^4.5.9",
+    "@heroicons/react": "^2.0.16",
+    "daisyui": "^2.51.3",
     "gatsby": "^5.4.0",
     "gatsby-plugin-feed": "^5.4.0",
     "gatsby-plugin-google-gtag": "^5.5.0",
@@ -30,6 +32,7 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.13",
     "gatsby-plugin-postcss": "^6.7.0",
     "postcss": "^8.4.21",

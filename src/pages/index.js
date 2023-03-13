@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -25,29 +25,31 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
-      <ol style={{ listStyle: `none` }} className="flex flex-col gap-5">
+      <ol className="flex flex-col gap-5 list-none">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
             <li
-              className="w-full max-w-2xl p-6 mx-auto transition-transform text-sky-100 bg-sky-900 rounded-xl hover:scale-105 hover:cursor-pointer"
+              className="w-full max-w-2xl p-5 mx-auto transition-transform rounded-xl bg-base-200 hover:cursor-pointer active:scale-95"
               key={post.fields.slug}
             >
               <Link to={post.fields.slug} itemProp="url">
-                <article itemScope itemType="http://schema.org/Article">
+                <article
+                  className="prose"
+                  itemScope
+                  itemType="http://schema.org/Article"
+                >
                   <div className="flex flex-col gap-3">
                     <header>
-                      <h2 className="m-0 text-2xl">
+                      <h2 className="m-0">
                         <span itemProp="headline">{title}</span>
                       </h2>
-                      <small className="text-sky-200">
-                        {post.frontmatter.date}
-                      </small>
+                      <small className="">{post.frontmatter.date}</small>
                     </header>
                     <section>
                       <p
-                        className="text-sky-200"
+                        className=""
                         dangerouslySetInnerHTML={{
                           __html: post.frontmatter.description || post.excerpt,
                         }}

@@ -30,12 +30,15 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social
 
   return (
-    <div className="flex flex-col justify-center max-w-2xl p-5 mx-auto mb-6 rounded-xl bg-slate-900">
+    <div className="flex flex-col justify-center max-w-2xl p-5 mx-auto my-5 rounded-xl bg-base-300">
       {author?.name && (
         <p className="p-0 m-0">
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
+          <a
+            className="underline text-primary"
+            href={`https://twitter.com/${social?.twitter || ``}`}
+          >
             meet me at Twitter
           </a>
         </p>

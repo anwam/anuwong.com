@@ -7,7 +7,7 @@ export default function Tags({ tags }) {
       {tagList.length > 0 &&
         tagList.map(tag => (
           <span
-            className="px-4 py-1 mx-2 my-0 text-sm text-blue-900 bg-blue-300 rounded-full"
+            className="px-4 py-1 mx-2 my-0 text-sm rounded-full bg-primary text-primary-content"
             key={tag}
           >
             {tag}
