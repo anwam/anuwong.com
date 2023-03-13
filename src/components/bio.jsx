@@ -7,6 +7,7 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { BuildingOfficeIcon } from "@heroicons/react/24/solid"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -16,6 +17,7 @@ const Bio = () => {
           author {
             name
             summary
+            workAt
           }
           social {
             twitter
@@ -27,22 +29,23 @@ const Bio = () => {
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author
-  const social = data.site.siteMetadata?.social
 
   return (
-    <div className="flex flex-col justify-center max-w-2xl p-5 mx-auto my-5 rounded-xl bg-base-300">
+    <div className="flex flex-col justify-center max-w-2xl p-5 mx-auto my-5 prose rounded-xl bg-base-300">
       {author?.name && (
         <p className="p-0 m-0">
-          Written by <strong>{author.name}</strong> {author?.summary || null}
+          <strong className="text-accent">{author.name}</strong>
+          {", "}
+          {author?.summary || null}
           {` `}
-          <a
-            className="underline text-primary"
-            href={`https://twitter.com/${social?.twitter || ``}`}
-          >
-            meet me at Twitter
-          </a>
         </p>
       )}
+      {author?.workAt ? (
+        <p className="p-0 m-0">
+          <BuildingOfficeIcon className="inline w-6 h-6 mr-2 text-accent" />
+          {author?.workAt}
+        </p>
+      ) : null}
     </div>
   )
 }

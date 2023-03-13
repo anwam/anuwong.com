@@ -9,10 +9,11 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Anuwong Blog`,
+    title: `anuwong.com`,
     author: {
       name: `Anuwong`,
-      summary: `write to learn`,
+      summary: `a Backend Developer who loves to code and learn React, TailwindCSS and other frontend stuff.`,
+      workAt: "TrueID - True Digital Group, Bangkok",
     },
     description: `my journey to become a better developer`,
     siteUrl: `https://anuwong.com`,
@@ -56,7 +57,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/content`,
       },
     },
     {
@@ -132,7 +133,7 @@ module.exports = {
               }
             }`,
             output: "/rss.xml",
-            title: "Anuwong Blog RSS Feed",
+            title: "anuwong.com RSS Feed",
           },
         ],
       },
@@ -140,8 +141,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Anuwong Blog`,
-        short_name: `Anuwong Blog`,
+        name: `anuwong.com`,
+        short_name: `anuwong.com`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
