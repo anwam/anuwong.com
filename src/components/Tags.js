@@ -1,6 +1,6 @@
 import * as React from "react"
 
-export default function Tags({ tags }) {
+const Tags = ({ tags }) => {
   const tagList = tags.split(",").map(tag => tag.trim())
   return (
     <div className="flex flex-row flex-wrap">
@@ -16,3 +16,5 @@ export default function Tags({ tags }) {
     </div>
   )
 }
+
+export default Tags
