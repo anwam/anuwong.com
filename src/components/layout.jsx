@@ -15,29 +15,32 @@ export default function Layout({ location, title, children }) {
 
   if (isRootPath) {
     header = (
-      <h1 className="m-0 text-base font-bold md:text-xl">
+      <h1 className="m-0 font-bold">
         <Link to="/">{title}</Link>
       </h1>
     )
   } else {
     header = (
-      <Link className="m-0 text-sm font-bold md:text-base" to="/">
+      <Link className="m-0 font-bold" to="/">
         {title}
       </Link>
     )
   }
 
   return (
-    <div className="container max-w-5xl mx-auto" data-is-root-path={isRootPath}>
-      <header className="p-5 navbar rounded-xl bg-base-300">
-        <div className="gap-5 navbar-start">
+    <div
+      className="container flex flex-col justify-between h-full max-w-5xl p-5 mx-auto"
+      data-is-root-path={isRootPath}
+    >
+      <header className="navbar rounded-xl bg-base-300">
+        <div className="gap-5 ml-5 navbar-start">
           <StaticImage
-            className="rounded-full"
+            className="w-10 h-10 rounded-full"
             layout="fixed"
             formats={["auto", "webp", "avif"]}
             src="../images/profile-pic.jpeg"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
             quality={95}
             alt="Profile picture"
           />
@@ -81,7 +84,7 @@ export default function Layout({ location, title, children }) {
           </div>
         </div>
       </header>
-      <main className="px-5">{children}</main>
+      <main>{children}</main>
       <footer className="my-5">
         © {new Date().getFullYear()}, Built with{" "}
         <span className="text-red-600">❤️</span> and

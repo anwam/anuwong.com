@@ -18,3 +18,13 @@ p {
 .gatsby-resp-image-image {
   @apply rounded;
 }
+
+html,
+body,
+#___gatsby {
+  height: 100%;
+}
+
+#gatsby-focus-wrapper {
+  height: 100%;
+}

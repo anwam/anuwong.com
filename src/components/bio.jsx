@@ -7,7 +7,11 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { BuildingOfficeIcon } from "@heroicons/react/24/solid"
+import {
+  BuildingOfficeIcon,
+  AcademicCapIcon,
+  CommandLineIcon,
+} from "@heroicons/react/24/solid"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -31,7 +35,7 @@ const Bio = () => {
   const author = data.site.siteMetadata?.author
 
   return (
-    <div className="flex flex-col justify-center max-w-2xl p-5 mx-auto my-5 prose rounded-xl bg-base-300">
+    <div className="flex flex-col justify-center max-w-2xl gap-5 p-5 mx-auto my-5 prose rounded-xl bg-base-300">
       {author?.name && (
         <p className="p-0 m-0">
           <strong className="text-accent">{author.name}</strong>
@@ -40,12 +44,20 @@ const Bio = () => {
           {` `}
         </p>
       )}
+      <p className="p-0 m-0">
+        <CommandLineIcon className="inline w-6 h-6 mr-2 text-accent" />
+        Golang, NodeJS, Typescript, ReactJS, MongoDB, MySQL
+      </p>
       {author?.workAt ? (
         <p className="p-0 m-0">
           <BuildingOfficeIcon className="inline w-6 h-6 mr-2 text-accent" />
           {author?.workAt}
         </p>
       ) : null}
+      <p className="p-0 m-0">
+        <AcademicCapIcon className="inline w-6 h-6 mr-2 text-accent" />
+        Suranaree University of Technology
+      </p>
     </div>
   )
 }
