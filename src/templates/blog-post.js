@@ -2,10 +2,10 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import Bio from "../components/Bio"
-import Tags from "../components/Tags"
-import Seo from "../components/Seo"
-import Layout from "../components/Layout"
+import Bio from "../components/bio"
+import Tags from "../components/tags"
+import Seo from "../components/seo"
+import Layout from "../components/layout"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },

@@ -4,7 +4,7 @@ import { UserIcon } from "@heroicons/react/24/solid"
 
 import { StaticImage } from "gatsby-plugin-image"
 
-const Layout = ({ location, title, children }) => {
+export default function Layout({ location, title, children }) {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -66,5 +66,3 @@ const Layout = ({ location, title, children }) => {
     </div>
   )
 }
-
-export default Layout
