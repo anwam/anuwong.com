@@ -29,7 +29,7 @@ export default function Layout({ location, title, children }) {
 
   return (
     <div
-      className="container flex flex-col justify-between h-full max-w-5xl p-5 mx-auto"
+      className="container h-full max-w-5xl p-5 mx-auto"
       data-is-root-path={isRootPath}
     >
       <header className="navbar rounded-xl bg-base-300">

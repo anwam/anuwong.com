@@ -8,10 +8,9 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-serif": "^4.5.12",
     "@fontsource/inter": "^4.5.15",
     "@fontsource/kanit": "^4.5.10",
-    "@fontsource/merriweather": "^4.5.14",
-    "@fontsource/montserrat": "^4.5.13",
     "@fontsource/sarabun": "^4.5.9",
     "@heroicons/react": "^2.0.16",
     "daisyui": "^2.51.3",

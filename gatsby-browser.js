@@ -2,6 +2,7 @@
 import "@fontsource/inter"
 import "@fontsource/kanit"
 import "@fontsource/sarabun"
+import "@fontsource/ibm-plex-serif"
 // custom CSS styles
 import "./src/style.css"
 

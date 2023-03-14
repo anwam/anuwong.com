@@ -16,7 +16,7 @@ p {
 }
 
 .gatsby-resp-image-image {
-  @apply rounded;
+  @apply rounded-xl overflow-hidden;
 }
 
 html,

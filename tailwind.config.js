@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Inter", "Kanit", ...defaultTheme.fontFamily.sans],
-      serif: ["Inter", "Sarabun", ...defaultTheme.fontFamily.serif],
+      serif: ["IBM Plex Serif", "Sarabun", ...defaultTheme.fontFamily.serif],
     },
     extend: {},
   },
