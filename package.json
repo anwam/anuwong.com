@@ -13,6 +13,7 @@
     "@fontsource/kanit": "^4.5.10",
     "@fontsource/sarabun": "^4.5.9",
     "@heroicons/react": "^2.0.16",
+    "@react-spring/web": "^9.7.2",
     "daisyui": "^2.51.3",
     "gatsby": "^5.4.0",
     "gatsby-plugin-feed": "^5.4.0",
