@@ -15,7 +15,7 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <article
-        className="w-full mx-auto my-5 prose"
+        className="w-full mx-auto my-5 prose lg:prose-xl"
         itemScope
         itemType="http://schema.org/Article"
       >

@@ -75,10 +75,11 @@ jobs:
       #   with:
       #     path: ./public
       - name: Cloudflare Pages GitHub Action
-        uses: cloudflare/pages-action@v1.3.0
+        uses: cloudflare/pages-action@v1.5.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: c9dcaec8ffe2fc0938209fa95cf26442
           projectName: anuwong-com
           directory: public
           branch: main
+          wranglerVersion: "3"

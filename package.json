@@ -55,6 +55,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "preview": "wrangler pages deploy ./public --project-name=anuwong-com --branch=preview",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "volta": {

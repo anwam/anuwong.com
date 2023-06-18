@@ -13,19 +13,22 @@ const BlogIndex = ({ data, location }) => {
     () => ({
       from: { opacity: 0 },
       to: { opacity: 1 },
-      config: config.stiff,
+      config: { ...config.stiff, duration: 300 },
     }),
-    []
+    [posts]
   )
 
-  const [onHovers] = useSprings(
+  const [hoverSprings, apis] = useSprings(
     posts.length,
     () => ({
-      to: { scale: 1 },
-      from: { scale: 0.75 },
+      scale: 1,
+      boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
+      from: { scale: 0.9 },
       config: {
         ...config.stiff,
-        duration: 20,
+        duration: 150,
+        precision: 0.0001,
+        mass: 10,
       },
     }),
     [posts]
@@ -43,6 +46,18 @@ const BlogIndex = ({ data, location }) => {
     )
   }
 
+  const handleHover = (isHover, index) => {
+    apis.start(i => {
+      if (i !== index) return
+      return {
+        scale: isHover ? 1.005 : 1,
+        boxShadow: isHover
+          ? `0px 0px 10px 5px rgba(55, 205, 190,0.5)`
+          : "0px 0px 0px 0px rgba(0,0,0,0)",
+      }
+    })
+  }
+
   return (
     <Layout location={location} title={siteTitle}>
       <ol className="flex flex-col gap-5 my-5 list-none">
@@ -52,14 +67,10 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <animated.li
-              style={{ ...trails[i], scale: onHovers[i]?.scale }}
-              onMouseEnter={function () {
-                onHovers[i]?.scale.start(1.05)
-              }}
-              onMouseLeave={function () {
-                onHovers[i]?.scale.start(1)
-              }}
-              className="w-full max-w-2xl p-5 mx-auto transition-transform rounded-xl bg-base-200 hover:cursor-pointer"
+              style={{ ...trails[i], ...hoverSprings[i] }}
+              onMouseEnter={() => handleHover(true, i)}
+              onMouseLeave={() => handleHover(false, i)}
+              className="w-full max-w-2xl p-5 mx-auto rounded-xl bg-base-200 hover:cursor-pointer"
               key={post.fields.slug}
             >
               <Link to={post.fields.slug} itemProp="url">

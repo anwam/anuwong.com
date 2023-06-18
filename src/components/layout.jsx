@@ -84,11 +84,13 @@ export default function Layout({ location, title, children }) {
       </header>
       <main>{children}</main>
       <footer>
-        <div className="flex justify-center">
-          © {new Date().getFullYear()}, Built with{" "}
-          <span className="text-red-600">❤️</span> and
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <div className="flex justify-center pb-5 mb-5">
+          <div>
+            © {new Date().getFullYear()}, Built with{" "}
+            <span className="text-red-600">❤️</span> and
+            {` `}
+            <a href="https://www.gatsbyjs.com">Gatsby</a>
+          </div>
         </div>
       </footer>
     </div>
