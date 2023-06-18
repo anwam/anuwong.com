@@ -8,7 +8,7 @@ const Tags = ({ tags, className }) => {
     () => ({
       from: { opacity: 0, x: 40 },
       to: { opacity: 1, x: 0 },
-      delay: 150,
+      delay: 100,
     }),
     [tagList]
   )
@@ -18,7 +18,7 @@ const Tags = ({ tags, className }) => {
         tagList.map((tag, i) => (
           <animated.span
             style={{ ...trails[i] }}
-            className="px-4 py-1 text-sm rounded-full bg-primary text-primary-content hover:ring-2 ring-secondary"
+            className="px-4 py-1 text-sm rounded-full bg-primary text-primary-content hover:ring-2 ring-secondary transition-shadow"
             key={tag}
           >
             {tag}

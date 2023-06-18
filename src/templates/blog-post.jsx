@@ -15,7 +15,7 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <article
-        className="w-full mx-auto my-5 prose lg:prose-xl"
+        className="w-full mx-auto my-5 prose lg:prose-lg"
         itemScope
         itemType="http://schema.org/Article"
       >
@@ -27,7 +27,7 @@ const BlogPostTemplate = ({
             />
           </div>
         )}
-        <header>
+        <header className="bg-base-200 p-5 rounded-lg">
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <span>{post.frontmatter.date}</span>
         </header>

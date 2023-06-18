@@ -11,9 +11,10 @@ const BlogIndex = ({ data, location }) => {
   const [trails] = useTrail(
     posts.length,
     () => ({
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-      config: { ...config.stiff, duration: 300 },
+      opacity: 1,
+      y: 0,
+      from: { opacity: 0, y: 30 },
+      config: { ...config.stiff, duration: 100 },
     }),
     [posts]
   )
@@ -26,7 +27,7 @@ const BlogIndex = ({ data, location }) => {
       from: { scale: 0.9 },
       config: {
         ...config.stiff,
-        duration: 150,
+        duration: 100,
         precision: 0.0001,
         mass: 10,
       },
