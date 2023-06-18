@@ -27,7 +27,7 @@ const BlogPostTemplate = ({
             />
           </div>
         )}
-        <header className="bg-base-200 p-5 rounded-lg">
+        <header className="p-5 rounded-lg bg-base-200">
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <span>{post.frontmatter.date}</span>
         </header>

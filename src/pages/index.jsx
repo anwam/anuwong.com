@@ -61,7 +61,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <ol className="flex flex-col gap-5 my-5 list-none">
+      <ol className="flex flex-col my-5 list-none gap-5">
         {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
           const tags = post.frontmatter.tags

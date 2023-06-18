@@ -18,7 +18,7 @@ const Tags = ({ tags, className }) => {
         tagList.map((tag, i) => (
           <animated.span
             style={{ ...trails[i] }}
-            className="px-4 py-1 text-sm rounded-full bg-primary text-primary-content hover:ring-2 ring-secondary transition-shadow"
+            className="px-4 py-1 text-sm rounded-full transition-shadow bg-primary text-primary-content hover:ring-2 ring-secondary"
             key={tag}
           >
             {tag}
