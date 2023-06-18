@@ -1,7 +1,7 @@
 ---
 title: Go Testing Part 2 - Write Testable Code
 description: "การเขียนโค้ดที่สามารถทดสอบได้ (Testable Code) เป็นอีกหนึ่งปัจจัยใจ ที่สามารถแบ่งระดับความชำนาญ/ความเชี่ยวชาญของนักพัฒนาได้ เพราะการมีชุดทดสอบที่ดี เชื่อถือได้ จะทำให้การพัฒนา Software เป็นไปได้อย่างราบรื่น"
-date: 2023-03-18T12:27:46.405Z
+date: 2023-06-18T12:27:46.405Z
 preview: ""
 draft: false
 tags: golang,testing
