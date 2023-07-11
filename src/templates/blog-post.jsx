@@ -15,7 +15,7 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <article
-        className="w-full mx-auto my-5 prose lg:prose-lg"
+        className="w-full mx-auto my-5 prose lg:prose-lg prose-headings:text-primary"
         itemScope
         itemType="http://schema.org/Article"
       >
@@ -27,9 +27,11 @@ const BlogPostTemplate = ({
             />
           </div>
         )}
-        <header className="p-5 rounded-lg bg-base-200">
+        <header className="p-5">
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <span>{post.frontmatter.date}</span>
+          <p className="px-4 py-2 rounded-lg bg-base-200">
+            {post.frontmatter.date}
+          </p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -38,7 +40,7 @@ const BlogPostTemplate = ({
         {post?.frontmatter?.tags && <Tags tags={post.frontmatter.tags} />}
       </article>
       <nav className="my-5">
-        <ul className="flex flex-wrap justify-between p-0 list-none">
+        <ul className="flex flex-wrap justify-between p-2 list-none">
           <li>
             {previous && (
               <Link

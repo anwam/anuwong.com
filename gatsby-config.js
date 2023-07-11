@@ -12,8 +12,8 @@ module.exports = {
     title: `anuwong.com`,
     author: {
       name: `Anuwong`,
-      summary: `a Backend Developer who loves to code and learn React, TailwindCSS and other frontend stuff.`,
-      workAt: "TrueID - True Digital Group, Bangkok",
+      summary: `a web developer who loves to learn new things. I write about web development, JavaScript, Golang, and other technologies.`,
+      workAt: "Bangkok",
     },
     description: `my journey to become a better developer`,
     siteUrl: `https://anuwong.com`,

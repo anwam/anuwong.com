@@ -24,7 +24,6 @@ const BlogIndex = ({ data, location }) => {
     () => ({
       scale: 1,
       boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
-      from: { scale: 0.9 },
       config: {
         ...config.stiff,
         duration: 100,
@@ -61,14 +60,15 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <ol className="flex flex-col my-5 list-none gap-5">
+      <ol className="flex flex-col gap-5 my-5 list-none">
         {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
+          const subtitle = post.frontmatter.subtitle || ""
           const tags = post.frontmatter.tags
 
           return (
             <animated.li
-              style={{ ...trails[i], ...hoverSprings[i] }}
+              style={{ ...hoverSprings[i] }}
               onMouseEnter={() => handleHover(true, i)}
               onMouseLeave={() => handleHover(false, i)}
               className="w-full max-w-2xl p-5 mx-auto rounded-xl bg-base-200 hover:cursor-pointer"
@@ -82,7 +82,7 @@ const BlogIndex = ({ data, location }) => {
                 >
                   <div className="flex flex-col gap-3">
                     <section>
-                      <h2 className="m-0 mb-5">
+                      <h2 className="m-0 mb-5 text-primary">
                         <span itemProp="headline">{title}</span>
                       </h2>
                       <p
@@ -92,6 +92,11 @@ const BlogIndex = ({ data, location }) => {
                         }}
                         itemProp="description"
                       />
+                      {subtitle && (
+                        <p className="px-3 py-2 rounded-md bg-base-100 text-accent w-fit">
+                          {subtitle}
+                        </p>
+                      )}
                       <small className="">{post.frontmatter.date}</small>
                       <Tags className="mt-2" tags={tags} />
                     </section>
@@ -134,6 +139,7 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
+          subtitle
           description
           tags
         }
