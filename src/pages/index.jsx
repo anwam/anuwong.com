@@ -52,8 +52,8 @@ const BlogIndex = ({ data, location }) => {
       return {
         scale: isHover ? 1.005 : 1,
         boxShadow: isHover
-          ? `0px 0px 10px 5px rgba(55, 205, 190,0.5)`
-          : "0px 0px 0px 0px rgba(0,0,0,0)",
+          ? `0px 0px 10px 5px hsla(0,63%,51%,0.5)`
+          : "0px 0px 0px 0px hsla(0,0,0,0)",
       }
     })
   }

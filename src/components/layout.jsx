@@ -24,11 +24,6 @@ export default function Layout({ location, title, children }) {
     )
   }
 
-  const handleDropdown = e => {
-    e.preventDefault()
-    setIsDropdownOpen(prevState => !prevState)
-  }
-
   return (
     <div
       className="container h-full max-w-5xl p-5 mx-auto"
@@ -50,17 +45,12 @@ export default function Layout({ location, title, children }) {
         </Link>
         <div className="navbar-end">
           {/* dropdown */}
-          <div className="z-10 dropdown dropdown-end">
-            <button
-              onClick={handleDropdown}
-              className="btn btn-ghost rounded-btn md:hidden"
-            >
+          <details className="z-10 dropdown dropdown-end">
+            <summary className="btn rounded-box md:hidden hover:bg-secondary hover:shadow-lg hover:text-secondary-content hover:shadow-secondary/50">
               <Bars3BottomRightIcon className="w-6 h-6" />
-            </button>
+            </summary>
             <ul
-              className={`relative gap-2 p-2 mt-1 shadow top-full w-fit rounded-box bg-base-100 dropdown-content menu menu-sm ${
-                isDropdownOpen ? "dropdown-open" : null
-              }`}
+              className={`relative gap-2 p-2 mt-1 shadow top-full w-fit rounded-box bg-base-100 dropdown-content menu menu-sm`}
             >
               <li className="border border-secondary rounded-box hover:bg-secondary">
                 <Link to="/about" partiallyActive>
@@ -84,7 +74,7 @@ export default function Layout({ location, title, children }) {
                 </a>
               </li>
             </ul>
-          </div>
+          </details>
           <ul className="items-center hidden gap-2 bg-transparent md:flex md:flex-row menu menu-normal menu-horizontal">
             <li className="border border-secondary rounded-box">
               <Link to="/about" partiallyActive>
