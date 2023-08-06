@@ -22,9 +22,12 @@ p {
 html,
 body,
 #___gatsby {
+  @apply bg-base-300;
   height: 100%;
+  position: relative;
 }
 
 #gatsby-focus-wrapper {
-  height: 100%;
+  @apply bg-base-300;
+  min-height: 100%;
 }

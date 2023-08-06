@@ -8,16 +8,6 @@ import Tags from "../components/tags"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-  const [trails] = useTrail(
-    posts.length,
-    () => ({
-      opacity: 1,
-      y: 0,
-      from: { opacity: 0, y: 30 },
-      config: { ...config.stiff, duration: 100 },
-    }),
-    [posts]
-  )
 
   const [hoverSprings, apis] = useSprings(
     posts.length,
@@ -71,7 +61,7 @@ const BlogIndex = ({ data, location }) => {
               style={{ ...hoverSprings[i] }}
               onMouseEnter={() => handleHover(true, i)}
               onMouseLeave={() => handleHover(false, i)}
-              className="w-full max-w-2xl p-5 mx-auto rounded-xl bg-base-200 hover:cursor-pointer"
+              className="w-full max-w-2xl p-5 mx-auto rounded-xl bg-base-100 hover:cursor-pointer"
               key={post.fields.slug}
             >
               <Link to={post.fields.slug} itemProp="url">
@@ -93,7 +83,7 @@ const BlogIndex = ({ data, location }) => {
                         itemProp="description"
                       />
                       {subtitle && (
-                        <p className="px-3 py-2 rounded-md bg-base-100 text-accent w-fit">
+                        <p className="px-3 py-2 text-lg font-extrabold rounded-md shadow bg-gray-50 text-accent w-fit">
                           {subtitle}
                         </p>
                       )}

@@ -10,7 +10,9 @@ const Home = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
+      <div className="h-[480px] flex flex-col justify-center">
+        <Bio />
+      </div>
     </Layout>
   )
 }

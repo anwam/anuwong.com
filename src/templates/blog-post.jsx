@@ -15,29 +15,31 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <article
-        className="w-full mx-auto my-5 prose lg:prose-lg prose-headings:text-primary"
+        className="w-full p-5 mx-auto my-5 rounded-xl bg-base-100"
         itemScope
         itemType="http://schema.org/Article"
       >
-        {post.frontmatter.preview && (
-          <div className="mb-5">
-            <GatsbyImage
-              image={getImage(post.frontmatter.preview)}
-              alt={post.frontmatter.description}
-            />
-          </div>
-        )}
-        <header className="p-5">
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p className="px-4 py-2 rounded-lg bg-base-200">
-            {post.frontmatter.date}
-          </p>
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        {post?.frontmatter?.tags && <Tags tags={post.frontmatter.tags} />}
+        <div className="mx-auto prose md:p-5 md:bg-gray-50 md:rounded-xl prose-headings:text-primary">
+          {post.frontmatter.preview && (
+            <div className="mb-5">
+              <GatsbyImage
+                image={getImage(post.frontmatter.preview)}
+                alt={post.frontmatter.description}
+              />
+            </div>
+          )}
+          <header>
+            <h1 itemProp="headline">{post.frontmatter.title}</h1>
+            <p className="px-4 py-2 rounded-lg bg-secondary text-secondary-content">
+              {post.frontmatter.date}
+            </p>
+          </header>
+          <section
+            dangerouslySetInnerHTML={{ __html: post.html }}
+            itemProp="articleBody"
+          />
+          {post?.frontmatter?.tags && <Tags tags={post.frontmatter.tags} />}
+        </div>
       </article>
       <nav className="my-5">
         <ul className="flex flex-wrap justify-between p-2 list-none">

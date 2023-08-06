@@ -9,7 +9,6 @@ import {
 import { StaticImage } from "gatsby-plugin-image"
 
 export default function Layout({ location, title, children }) {
-  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false)
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -26,10 +25,10 @@ export default function Layout({ location, title, children }) {
 
   return (
     <div
-      className="container h-full max-w-5xl p-5 mx-auto"
+      className="container max-w-5xl p-5 mx-auto bg-base-200"
       data-is-root-path={isRootPath}
     >
-      <header className="navbar rounded-xl bg-base-300">
+      <header className="shadow-lg navbar rounded-xl bg-base-100">
         <Link to="/" className="gap-5 ml-5 navbar-start">
           <StaticImage
             className="w-10 h-10 rounded-full"
@@ -41,7 +40,7 @@ export default function Layout({ location, title, children }) {
             quality={95}
             alt="Profile picture"
           />
-          <div className="hidden sm:block">{header}</div>
+          <div className="hidden text-primary sm:block">{header}</div>
         </Link>
         <div className="navbar-end">
           {/* dropdown */}
@@ -99,7 +98,7 @@ export default function Layout({ location, title, children }) {
           </ul>
         </div>
       </header>
-      <main>{children}</main>
+      <main className="h-full">{children}</main>
       <footer>
         <div className="flex justify-center pb-5 mb-5">
           <div>
