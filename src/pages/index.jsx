@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { animated, config, useSprings, useTrail } from "@react-spring/web"
+import { animated, config, useSprings } from "@react-spring/web"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Tags from "../components/tags"
@@ -21,7 +21,7 @@ const BlogIndex = ({ data, location }) => {
         mass: 10,
       },
     }),
-    [posts]
+    [posts],
   )
 
   if (posts.length === 0) {

@@ -15,30 +15,36 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <article
-        className="w-full p-5 mx-auto my-5 rounded-xl bg-base-100"
+        className="w-full p-5 mx-auto my-5 prose md:shadow-md prose-stone md:max-w-none prose-headings:text-primary lg:p-8 rounded-xl bg-base-100"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <div className="mx-auto prose md:p-5 md:bg-gray-50 md:rounded-xl prose-headings:text-primary">
+        <div className="mb-5 md:shadow-md p5 md:p-8 md:bg-gray-50 md:rounded-xl md:mb-8">
           {post.frontmatter.preview && (
             <div className="mb-5">
               <GatsbyImage
                 image={getImage(post.frontmatter.preview)}
                 alt={post.frontmatter.description}
+                className="rounded-xl"
               />
             </div>
           )}
           <header>
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p className="px-4 py-2 rounded-lg bg-secondary text-secondary-content">
-              {post.frontmatter.date}
-            </p>
+            <p className="w-fit text-secondary">{post.frontmatter.date}</p>
           </header>
+        </div>
+
+        <div className="mx-auto md:shadow-md md:p-8 md:bg-gray-50 md:rounded-xl">
           <section
             dangerouslySetInnerHTML={{ __html: post.html }}
             itemProp="articleBody"
           />
-          {post?.frontmatter?.tags && <Tags tags={post.frontmatter.tags} />}
+          {post?.frontmatter?.tags !== "" ? (
+            <Tags tags={post.frontmatter.tags} />
+          ) : (
+            <></>
+          )}
         </div>
       </article>
       <nav className="my-5">
