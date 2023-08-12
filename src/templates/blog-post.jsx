@@ -48,11 +48,11 @@ const BlogPostTemplate = ({
         </div>
       </article>
       <nav className="my-5">
-        <ul className="flex flex-wrap justify-between p-2 list-none">
+        <ul className="flex flex-wrap justify-between gap-4 list-none">
           <li>
             {previous && (
               <Link
-                className="gap-2 btn btn-secondary btn-outline text-secondary-content"
+                className="btn btn-secondary btn-outline text-secondary-content"
                 to={previous.fields.slug}
                 rel="prev"
               >
@@ -63,7 +63,7 @@ const BlogPostTemplate = ({
           <li>
             {next && (
               <Link
-                className="gap-2 btn btn-secondary btn-outline text-secondary-content"
+                className="btn btn-secondary btn-outline text-secondary-content"
                 to={next.fields.slug}
                 rel="next"
               >
@@ -84,6 +84,8 @@ export const Head = ({ data: { markdownRemark: post } }) => {
     <Seo
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
+      image={post.frontmatter.preview?.publicURL}
+      slug={post.fields.slug}
     />
   )
 }
@@ -103,11 +105,15 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         description
         preview {
+          publicURL
           childImageSharp {
             gatsbyImageData
           }
