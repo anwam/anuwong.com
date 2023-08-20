@@ -29,7 +29,7 @@ const BlogPostTemplate = ({
           )}
         </div>
 
-        <div className="col-span-12 p-2 md:shadow-md md:p-5 bg-gray-50 rounded-xl">
+        <div className="col-span-12 p-2 md:shadow-md md:p-5 bg-gray-50/50 rounded-xl backdrop-blur-md">
           <header>
             <h1>{post.frontmatter.title}</h1>
             <span className="text-secondary">{post.frontmatter.date}</span>
@@ -45,7 +45,7 @@ const BlogPostTemplate = ({
           <li>
             {previous && (
               <Link
-                className="text-xs btn btn-secondary btn-sm btn-outline text-secondary-content"
+                className="text-xs btn btn-secondary btn-sm text-secondary-content"
                 to={previous.fields.slug}
                 rel="prev"
               >
@@ -56,7 +56,7 @@ const BlogPostTemplate = ({
           <li>
             {next && (
               <Link
-                className="text-xs btn btn-secondary btn-sm btn-outline text-secondary-content"
+                className="text-xs btn btn-secondary btn-sm text-secondary-content"
                 to={next.fields.slug}
                 rel="next"
               >
