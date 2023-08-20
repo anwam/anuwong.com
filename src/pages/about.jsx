@@ -10,7 +10,7 @@ const Home = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="h-[480px] flex flex-col justify-center">
+      <div className="flex flex-col justify-center">
         <Bio />
       </div>
     </Layout>
@@ -24,7 +24,7 @@ export default Home
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="Home" />
+export const Head = () => <Seo title="About" />
 
 export const pageQuery = graphql`
   {

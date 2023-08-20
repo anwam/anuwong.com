@@ -1,14 +1,12 @@
 ---
 title: เพิ่มประสิทธิภาพโปรแกรมภาษา Go ด้วยเทคนิก Memoization
-description: Memoization เป็นเทคนิกในการเพิ่มประสิทธิภาพสำหรับโปรแกรมที่มี cost
-  ในการคำนวนสูงๆ โดยการเก็บผลลัพธ์ไว้และคืนกลับไปหากได้รับ input parameters เดิม
-  ซึ่งจะช่วยลด expensive calculation ไปได้มหาศาล
+description: Memoization เป็นเทคนิกในการเพิ่มประสิทธิภาพสำหรับโปรแกรมที่มี cost ในการคำนวนสูงๆ โดยการเก็บผลลัพธ์ไว้และคืนกลับไปหากได้รับ input parameters เดิม ซึ่งจะช่วยลด expensive calculation ไปได้มหาศาล
 date: 2023-03-18T08:35:51.589Z
-preview: ""
+preview: ./golang.png
 draft: false
 tags: optimization,golang,performance
 categories: null
-lastmod: 2023-03-18T09:44:10.347Z
+lastmod: 2023-08-20T08:36:43.060Z
 ---
 
 Memoization เป็นเทคนิกในการเพิ่มประสิทธิภาพสำหรับโปรแกรมที่มี cost ในการคำนวนสูงๆ โดยการเก็บผลลัพธ์ที่เคยคำนวนไว้ และคืนกลับไปหากได้รับ input parameters เดิม ซึ่งจะช่วยลด expensive calculation ไปได้มหาศาล

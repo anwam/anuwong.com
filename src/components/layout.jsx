@@ -24,20 +24,17 @@ export default function Layout({ location, title, children }) {
   }
 
   return (
-    <div
-      className="container max-w-5xl p-5 mx-auto bg-base-200"
-      data-is-root-path={isRootPath}
-    >
-      <header className="shadow-lg navbar rounded-xl bg-base-100">
-        <Link to="/" className="gap-5 ml-5 navbar-start">
+    <div className="grid h-full grid-flow-row grid-cols-12 gap-2 mx-auto auto-rows-min md:gap-5 bg-base-200">
+      <header className="container sticky top-0 z-50 h-auto col-span-12 mx-auto mt-0 rounded-none shadow-lg md:top-5 md:mt-5 navbar md:rounded-xl bg-base-100">
+        <Link to="/" className="gap-2 ml-2 md:gap-5 md:ml-5 navbar-start">
           <StaticImage
             className="w-10 h-10 rounded-full"
             layout="fixed"
-            formats={["auto", "webp", "avif"]}
+            formats={["auto", "webp"]}
             src="../images/profile-pic.jpeg"
             width={40}
             height={40}
-            quality={95}
+            quality={80}
             alt="Profile picture"
           />
           <div className="hidden text-primary sm:block">{header}</div>
@@ -51,13 +48,13 @@ export default function Layout({ location, title, children }) {
             <ul
               className={`relative gap-2 p-2 mt-1 shadow top-full w-fit rounded-box bg-base-100 dropdown-content menu menu-sm`}
             >
-              <li className="border border-secondary rounded-box hover:bg-secondary">
+              <li className="border border-secondary rounded-box hover:bg-secondary bg-gray-50">
                 <Link to="/about" partiallyActive>
                   <UserCircleIcon className="w-6 h-6" />
                   About
                 </Link>
               </li>
-              <li className="border border-primary rounded-box">
+              <li className="border border-primary rounded-box bg-gray-50">
                 <a href="https://github.com/anwam">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -75,13 +72,13 @@ export default function Layout({ location, title, children }) {
             </ul>
           </details>
           <ul className="items-center hidden gap-2 bg-transparent md:flex md:flex-row menu menu-normal menu-horizontal">
-            <li className="border border-secondary rounded-box">
+            <li className="border border-secondary rounded-box bg-gray-50">
               <Link to="/about" partiallyActive>
                 <UserCircleIcon className="w-6 h-6" />
                 About
               </Link>
             </li>
-            <li className="border border-primary rounded-box">
+            <li className="border border-primary rounded-box bg-gray-50">
               <a href="https://github.com/anwam">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -98,14 +95,44 @@ export default function Layout({ location, title, children }) {
           </ul>
         </div>
       </header>
-      <main className="h-full">{children}</main>
-      <footer>
-        <div className="flex justify-center pb-5 mb-5">
-          <div>
+      <aside className="z-10 flex flex-col items-center self-start justify-center h-auto col-span-12 gap-2 md:sticky md:col-span-2 top-4 md:gap-5">
+        {/* <div className="w-full p-2 rounded-lg bg-base-300 h-72 animate-pulse">
+          Advertisement
+        </div>
+        <div className="w-full p-2 rounded-lg bg-base-300 h-72 animate-pulse">
+          Advertisement
+        </div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div> */}
+      </aside>
+      <main className="container h-full col-span-12 mx-auto md:col-span-8">
+        {children}
+      </main>
+      <aside className="z-10 flex flex-col items-center self-start justify-center h-auto col-span-12 gap-2 md:sticky md:col-span-2 top-4 md:gap-5">
+        {/* <div className="w-full p-2 rounded-lg bg-base-300 h-72 animate-pulse">
+          Advertisement
+        </div>
+        <div className="w-full p-2 rounded-lg bg-base-300 h-72 animate-pulse">
+          Advertisement
+        </div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div>
+        <div className="p-2 rounded-lg bg-base-300">Ads</div> */}
+      </aside>
+      <footer className="container sticky bottom-0 z-50 h-auto col-span-12 p-2 mx-auto md:bottom-5 md:mb-5 bg-base-300 md:rounded-xl">
+        <div className="container flex justify-center mx-auto">
+          <div className="px-2 py-2 rounded-lg bg-base-100 md:px-5">
             © {new Date().getFullYear()}, Built with{" "}
             <span className="text-red-600">❤️</span> and
             {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
+            <a href="https://www.gatsbyjs.com">Gatsby.js</a>
           </div>
         </div>
       </footer>

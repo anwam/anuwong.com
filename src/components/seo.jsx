@@ -30,11 +30,10 @@ const Seo = ({ description, title, children, image, slug }) => {
     ? `${site.siteMetadata.siteUrl}${slug}`
     : site.siteMetadata.siteUrl
   const fullImageURL = image ? `${site.siteMetadata.siteUrl}${image}` : null
-  console.log({ fullImageURL })
 
   return (
     <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+      <title>{title ? `${title} | ${defaultTitle}` : defaultTitle}</title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />

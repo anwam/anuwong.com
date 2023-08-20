@@ -15,44 +15,37 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <article
-        className="w-full p-5 mx-auto my-5 prose md:shadow-md prose-stone md:max-w-none prose-headings:text-primary lg:p-8 rounded-xl bg-base-100"
-        itemScope
+        className="grid grid-flow-row grid-cols-12 gap-2 p-2 mx-auto prose-sm prose md:gap-5 prose-p:text-base prose-headings:text-lg md:prose-headings:text-xl lg:prose-headings:text-2xl lg:prose-p:text-xl prose-headings:text-primary md:prose-base max-w-none"
         itemType="http://schema.org/Article"
       >
-        <div className="mb-5 md:shadow-md p5 md:p-8 md:bg-gray-50 md:rounded-xl md:mb-8">
+        <div className="col-span-12 md:shadow-md md:p-5 md:bg-gray-50 md:rounded-xl">
           {post.frontmatter.preview && (
-            <div className="mb-5">
-              <GatsbyImage
-                image={getImage(post.frontmatter.preview)}
-                alt={post.frontmatter.description}
-                className="rounded-xl"
-              />
-            </div>
+            <GatsbyImage
+              image={getImage(post.frontmatter.preview)}
+              alt={post.frontmatter.description}
+              className="rounded-xl"
+              objectFit="cover"
+            />
           )}
-          <header>
-            <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p className="w-fit text-secondary">{post.frontmatter.date}</p>
-          </header>
         </div>
 
-        <div className="mx-auto md:shadow-md md:p-8 md:bg-gray-50 md:rounded-xl">
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
+        <div className="col-span-12 md:shadow-md md:p-5 md:bg-gray-50 md:rounded-xl">
+          <header>
+            <h1>{post.frontmatter.title}</h1>
+            <span className="text-secondary">{post.frontmatter.date}</span>
+          </header>
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
           {post?.frontmatter?.tags !== "" ? (
             <Tags tags={post.frontmatter.tags} />
-          ) : (
-            <></>
-          )}
+          ) : null}
         </div>
       </article>
-      <nav className="my-5">
-        <ul className="flex flex-wrap justify-between gap-4 list-none">
+      <nav className="my-2 md:my-5">
+        <ul className="flex flex-wrap justify-between gap-2 list-none md:gap-5">
           <li>
             {previous && (
               <Link
-                className="btn btn-secondary btn-outline text-secondary-content"
+                className="text-xs btn btn-secondary btn-sm btn-outline text-secondary-content"
                 to={previous.fields.slug}
                 rel="prev"
               >
@@ -63,7 +56,7 @@ const BlogPostTemplate = ({
           <li>
             {next && (
               <Link
-                className="btn btn-secondary btn-outline text-secondary-content"
+                className="text-xs btn btn-secondary btn-sm btn-outline text-secondary-content"
                 to={next.fields.slug}
                 rel="next"
               >
@@ -115,7 +108,7 @@ export const pageQuery = graphql`
         preview {
           publicURL
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(placeholder: BLURRED)
           }
         }
         tags

@@ -1,28 +1,13 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { animated, config, useSprings } from "@react-spring/web"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Tags from "../components/tags"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata?.title
   const posts = data.allMarkdownRemark.nodes
-
-  const [hoverSprings, apis] = useSprings(
-    posts.length,
-    () => ({
-      scale: 1,
-      boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
-      config: {
-        ...config.stiff,
-        duration: 100,
-        precision: 0.0001,
-        mass: 10,
-      },
-    }),
-    [posts],
-  )
 
   if (posts.length === 0) {
     return (
@@ -36,64 +21,63 @@ const BlogIndex = ({ data, location }) => {
     )
   }
 
-  const handleHover = (isHover, index) => {
-    apis.start(i => {
-      if (i !== index) return
-      return {
-        scale: isHover ? 1.005 : 1,
-        boxShadow: isHover
-          ? `0px 0px 10px 5px hsla(0,63%,51%,0.5)`
-          : "0px 0px 0px 0px hsla(0,0,0,0)",
-      }
-    })
-  }
-
   return (
     <Layout location={location} title={siteTitle}>
-      <ol className="flex flex-col gap-5 my-5 list-none">
+      <ol className="flex flex-col gap-2 list-none md:gap-5">
         {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
           const subtitle = post.frontmatter.subtitle || ""
           const tags = post.frontmatter.tags
 
           return (
-            <animated.li
-              style={{ ...hoverSprings[i] }}
-              onMouseEnter={() => handleHover(true, i)}
-              onMouseLeave={() => handleHover(false, i)}
-              className="w-full max-w-2xl p-5 mx-auto rounded-xl bg-base-100 hover:cursor-pointer"
+            <li
+              className="mx-auto transition-all shadow rounded-xl bg-base-100 hover:cursor-pointer hover:ring-2 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20"
               key={post.fields.slug}
             >
               <Link to={post.fields.slug} itemProp="url">
-                <article
-                  className="prose"
-                  itemScope
-                  itemType="http://schema.org/Article"
-                >
-                  <div className="flex flex-col gap-3">
-                    <section>
-                      <h2 className="m-0 mb-5 text-primary">
-                        <span itemProp="headline">{title}</span>
-                      </h2>
-                      <p
-                        className=""
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description || post.excerpt,
-                        }}
-                        itemProp="description"
-                      />
-                      {subtitle && (
-                        <p className="px-3 py-2 text-lg font-extrabold rounded-md shadow bg-gray-50 text-accent w-fit">
-                          {subtitle}
-                        </p>
-                      )}
-                      <small className="">{post.frontmatter.date}</small>
-                      <Tags className="mt-2" tags={tags} />
-                    </section>
-                  </div>
-                </article>
+                <div className="flex flex-row">
+                  {post.frontmatter.preview ? (
+                    <GatsbyImage
+                      image={getImage(post.frontmatter.preview)}
+                      alt={post.frontmatter.description}
+                      className="hidden p-2 md:p-5 rounded-tl-lg rounded-bl-lg md:block md:w-1/3 md:min-w-[33.333%] bg-gray-50"
+                    />
+                  ) : (
+                    <div className="flex-col items-center justify-center hidden p-2 md:p-5 text-center rounded-tl-lg rounded-bl-lg md:flex md:w-1/3 md:min-w-[33.333%] bg-gray-50">
+                      no preview image
+                    </div>
+                  )}
+                  <article
+                    className="p-2 prose prose-headings:text-base prose-p:text-sm"
+                    itemScope
+                    itemType="http://schema.org/Article"
+                  >
+                    <div className="flex flex-col gap-3">
+                      <section>
+                        <h2 className="m-0 mb-2 md:mb-5 text-primary">
+                          <span itemProp="headline">{title}</span>
+                        </h2>
+                        <p
+                          className=""
+                          dangerouslySetInnerHTML={{
+                            __html:
+                              post.frontmatter.description || post.excerpt,
+                          }}
+                          itemProp="description"
+                        />
+                        {subtitle && (
+                          <p className="px-3 py-2 text-lg font-extrabold rounded-md shadow bg-gray-50 text-accent">
+                            {subtitle}
+                          </p>
+                        )}
+                        <small className="">{post.frontmatter.date}</small>
+                        <Tags className="mt-2" tags={tags} />
+                      </section>
+                    </div>
+                  </article>
+                </div>
               </Link>
-            </animated.li>
+            </li>
           )
         })}
       </ol>
@@ -108,7 +92,7 @@ export default BlogIndex
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="Blogs" />
+export const Head = () => <Seo title="Home" />
 
 export const pageQuery = graphql`
   {
@@ -132,6 +116,12 @@ export const pageQuery = graphql`
           subtitle
           description
           tags
+
+          preview {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
         }
       }
     }

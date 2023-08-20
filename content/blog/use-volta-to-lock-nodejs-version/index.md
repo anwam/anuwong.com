@@ -2,8 +2,9 @@
 title: แก้ปัญหา Node.js Projects ใช้หลาย version ด้วย volta.sh
 description: ปัญหาเวลาทำงานกับ Node.js based หลายๆ Project แล้วแต่ละ Project ดันต้องการ Node.js คนละเวอร์ชั่นกัน เมื่อก่อนก็ใช้ nvm แต่มันดูเหมือนคนแก่ไปหน่อย ลองมารู้จักกับ volta.sh กันดีกว่า
 date: 2023-08-12T05:35:51.589Z
-preview: ./volta.sh_.png
+preview: ./volta.png
 tags: nodejs, volta, nvm
+lastmod: 2023-08-20T08:55:43.881Z
 ---
 
 ปัญหาเวลาทำงานกับ Node.js based หลายๆ Project แล้วแต่ละ Project ดันต้องการ Node.js คนละเวอร์ชั่นกัน เมื่อก่อนก็ใช้ nvm แต่มันดูเหมือนคนแก่ไปหน่อย ลองมารู้จักกับ volta.sh กันดีกว่า
