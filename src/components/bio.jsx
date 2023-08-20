@@ -7,10 +7,7 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import {
-  BuildingOfficeIcon,
-  CommandLineIcon,
-} from "@heroicons/react/24/solid"
+import { BuildingOfficeIcon, CommandLineIcon } from "@heroicons/react/24/solid"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -34,7 +31,7 @@ const Bio = () => {
   const author = data.site.siteMetadata?.author
 
   return (
-    <div className="flex flex-col justify-center max-w-2xl gap-5 p-5 mx-auto my-5 prose rounded-xl bg-base-100">
+    <div className="flex flex-col justify-center max-w-2xl gap-5 p-5 mx-auto my-5 prose rounded-xl bg-base-100/50 backdrop-blur-sm">
       {author?.name && (
         <p className="p-0 m-0">
           <strong className="text-primary">{author.name}</strong>

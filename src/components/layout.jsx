@@ -5,7 +5,6 @@ import {
   ArrowTopRightOnSquareIcon,
   Bars3BottomRightIcon,
 } from "@heroicons/react/24/solid"
-
 import { StaticImage } from "gatsby-plugin-image"
 
 export default function Layout({ location, title, children }) {
@@ -24,8 +23,8 @@ export default function Layout({ location, title, children }) {
   }
 
   return (
-    <div className="grid h-full grid-flow-row grid-cols-12 gap-2 mx-auto auto-rows-min md:gap-5 bg-base-200">
-      <header className="container sticky top-0 z-50 h-auto col-span-12 mx-auto mt-0 rounded-none shadow-lg md:top-5 md:mt-5 navbar md:rounded-xl bg-base-100">
+    <div className="grid h-full grid-flow-row grid-cols-12 gap-2 mx-auto auto-rows-min md:gap-5">
+      <header className="container sticky top-0 z-50 h-auto col-span-12 mx-auto mt-0 rounded-none shadow-lg md:top-5 md:mt-5 navbar md:rounded-xl backdrop-blur-sm">
         <Link to="/" className="gap-2 ml-2 md:gap-5 md:ml-5 navbar-start">
           <StaticImage
             className="w-10 h-10 rounded-full"
@@ -71,14 +70,14 @@ export default function Layout({ location, title, children }) {
               </li>
             </ul>
           </details>
-          <ul className="items-center hidden gap-2 bg-transparent md:flex md:flex-row menu menu-normal menu-horizontal">
-            <li className="border border-secondary rounded-box bg-gray-50">
+          <ul className="items-center hidden gap-2 font-bold bg-transparent md:flex md:flex-row menu menu-normal menu-horizontal">
+            <li className="border border-secondary rounded-box bg-gray-50/75">
               <Link to="/about" partiallyActive>
                 <UserCircleIcon className="w-6 h-6" />
                 About
               </Link>
             </li>
-            <li className="border border-primary rounded-box bg-gray-50">
+            <li className="border border-primary rounded-box bg-gray-50/75">
               <a href="https://github.com/anwam">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,13 +125,35 @@ export default function Layout({ location, title, children }) {
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div> */}
       </aside>
-      <footer className="container sticky bottom-0 z-50 h-auto col-span-12 p-2 mx-auto md:bottom-5 md:mb-5 bg-base-300 md:rounded-xl">
+      <footer className="container sticky bottom-0 z-50 h-auto col-span-12 p-2 mx-auto md:bottom-5 md:mb-5 backdrop-blur-sm md:rounded-xl">
         <div className="container flex justify-center mx-auto">
-          <div className="px-2 py-2 rounded-lg bg-base-100 md:px-5">
-            © {new Date().getFullYear()}, Built with{" "}
-            <span className="text-red-600">❤️</span> and
-            {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby.js</a>
+          <div className="flex flex-col items-center justify-center px-2 py-2 text-xs rounded-lg bg-base-100 md:px-5">
+            <div className="flex flex-row">
+              <p>
+                © {new Date().getFullYear()}, Built with{" "}
+                <span className="text-red-600">❤️</span> and
+                {` `}
+                <a href="https://www.gatsbyjs.com">Gatsby.js</a>
+              </p>
+            </div>
+            <div className="flex flex-row">
+              <p>
+                Background Photo by{" "}
+                <a
+                  className="text-blue-500"
+                  href="https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                >
+                  Pawel Czerwinski
+                </a>{" "}
+                on{" "}
+                <a
+                  className="text-blue-500"
+                  href="https://unsplash.com/photos/hR545CzxZxk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                >
+                  Unsplash
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </footer>

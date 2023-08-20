@@ -31,7 +31,7 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li
-              className="mx-auto transition-all shadow rounded-xl bg-base-100 hover:cursor-pointer hover:ring-2 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20"
+              className="mx-auto transition-all shadow rounded-xl hover:cursor-pointer hover:ring-2 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20 bg-slate-100"
               key={post.fields.slug}
             >
               <Link to={post.fields.slug} itemProp="url">
@@ -40,7 +40,7 @@ const BlogIndex = ({ data, location }) => {
                     <GatsbyImage
                       image={getImage(post.frontmatter.preview)}
                       alt={post.frontmatter.description}
-                      className="hidden p-2 md:p-5 rounded-tl-lg rounded-bl-lg md:block md:w-1/3 md:min-w-[33.333%] bg-gray-50"
+                      className="hidden p-2 md:p-5 rounded-tl-xl rounded-bl-xl md:block md:w-1/3 md:min-w-[33.333%] bg-gray-50"
                     />
                   ) : (
                     <div className="flex-col items-center justify-center hidden p-2 md:p-5 text-center rounded-tl-lg rounded-bl-lg md:flex md:w-1/3 md:min-w-[33.333%] bg-gray-50">
@@ -48,7 +48,7 @@ const BlogIndex = ({ data, location }) => {
                     </div>
                   )}
                   <article
-                    className="p-2 prose prose-headings:text-base prose-p:text-sm"
+                    className="w-full p-2 prose md:p-5 prose-headings:text-base prose-p:text-sm"
                     itemScope
                     itemType="http://schema.org/Article"
                   >
