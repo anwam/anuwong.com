@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Tags from "../components/tags"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title
@@ -22,7 +23,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <ol className="flex flex-col gap-2 list-none md:gap-5">
+      <ol className="grid grid-flow-row grid-cols-12 gap-2 p-2 list-none md:gap-5 md:p-5">
         {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
           const subtitle = post.frontmatter.subtitle || ""
@@ -30,24 +31,23 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li
-              className="mx-auto transition-all shadow rounded-xl hover:cursor-pointer hover:ring-2 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20 bg-slate-100"
+              className="col-span-12 mx-auto transition-all shadow rounded-xl hover:cursor-pointer hover:ring-2 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20 bg-slate-100/75 backdrop-blur-lg"
               key={post.fields.slug}
             >
               <Link to={post.fields.slug} itemProp="url">
-                <div className="flex flex-row">
-                  {/* {post.frontmatter.preview ? (
+                <div className="grid grid-flow-row grid-cols-12">
+                  {post.frontmatter.preview ? (
+                    // <div className="hidden md:col-span-4 md:block bg-gray-50 rounded-tl-xl rounded-bl-xl">
                     <GatsbyImage
                       image={getImage(post.frontmatter.preview)}
                       alt={post.frontmatter.description}
-                      className="hidden p-2 md:p-5 rounded-tl-xl rounded-bl-xl md:block md:w-1/3 md:min-w-[33.333%] bg-gray-50"
+                      className="hidden lg:col-span-4 lg:block bg-gray-50 rounded-tl-xl rounded-bl-xl"
+                      imgClassName="hidden lg:col-span-4 lg:block"
+                      objectFit={"cover"}
                     />
-                  ) : (
-                    <div className="flex-col items-center justify-center hidden p-2 md:p-5 text-center rounded-tl-lg rounded-bl-lg md:flex md:w-1/3 md:min-w-[33.333%] bg-gray-50">
-                      no preview image
-                    </div>
-                  )} */}
+                  ) : null}
                   <article
-                    className="w-full p-2 prose md:p-5 prose-headings:text-base prose-p:text-sm"
+                    className="col-span-12 p-2 prose lg:col-span-8 md:p-5 prose-headings:text-base prose-p:text-sm"
                     itemScope
                     itemType="http://schema.org/Article"
                   >
@@ -118,7 +118,7 @@ export const pageQuery = graphql`
 
           preview {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
+              gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
             }
           }
         }

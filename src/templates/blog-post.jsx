@@ -18,7 +18,7 @@ const BlogPostTemplate = ({
         className="grid grid-flow-row grid-cols-12 gap-2 p-2 mx-auto prose-sm prose md:gap-5 prose-p:text-base prose-headings:text-lg md:prose-headings:text-xl lg:prose-headings:text-2xl lg:prose-p:text-xl prose-headings:text-primary md:prose-base max-w-none"
         itemType="http://schema.org/Article"
       >
-        <div className="col-span-12 md:shadow-md md:p-5 md:bg-gray-50 md:rounded-xl">
+        <div className="col-span-12 md:shadow-md md:p-5 bg-gray-50 rounded-xl">
           {post.frontmatter.preview && (
             <GatsbyImage
               image={getImage(post.frontmatter.preview)}
@@ -29,7 +29,7 @@ const BlogPostTemplate = ({
           )}
         </div>
 
-        <div className="col-span-12 md:shadow-md md:p-5 md:bg-gray-50 md:rounded-xl">
+        <div className="col-span-12 p-2 md:shadow-md md:p-5 bg-gray-50 rounded-xl">
           <header>
             <h1>{post.frontmatter.title}</h1>
             <span className="text-secondary">{post.frontmatter.date}</span>
