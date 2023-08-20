@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Tags from "../components/tags"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title
@@ -36,7 +35,7 @@ const BlogIndex = ({ data, location }) => {
             >
               <Link to={post.fields.slug} itemProp="url">
                 <div className="flex flex-row">
-                  {post.frontmatter.preview ? (
+                  {/* {post.frontmatter.preview ? (
                     <GatsbyImage
                       image={getImage(post.frontmatter.preview)}
                       alt={post.frontmatter.description}
@@ -46,7 +45,7 @@ const BlogIndex = ({ data, location }) => {
                     <div className="flex-col items-center justify-center hidden p-2 md:p-5 text-center rounded-tl-lg rounded-bl-lg md:flex md:w-1/3 md:min-w-[33.333%] bg-gray-50">
                       no preview image
                     </div>
-                  )}
+                  )} */}
                   <article
                     className="w-full p-2 prose md:p-5 prose-headings:text-base prose-p:text-sm"
                     itemScope
