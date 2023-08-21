@@ -125,7 +125,7 @@ export default function Layout({ location, title, children }) {
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div> */}
       </aside>
-      <footer className="container sticky bottom-0 z-50 h-auto col-span-12 p-2 mx-auto md:bottom-5 md:mb-5 backdrop-blur-sm md:rounded-xl">
+      <footer className="container sticky bottom-0 z-50 h-auto col-span-12 p-2 mx-auto md:bottom-5 md:mb-5 md:rounded-xl">
         <div className="container flex justify-center mx-auto">
           <div className="flex flex-col items-center justify-center px-2 py-2 text-xs rounded-lg bg-base-100 md:px-5">
             <div className="flex flex-row">

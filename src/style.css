@@ -6,15 +6,16 @@ html,
 body {
   min-height: 100vh !important;
   height: 100% !important;
-  background-image: url("./images/bg-image.jpg");
-  background-position: center top !important;
-  background-attachment: fixed !important;
-  background-repeat: no-repeat !important;
 }
+
 #___gatsby,
 #gatsby-focus-wrapper {
   min-height: 100%;
   position: relative;
+  background-image: url("./images/bg-image.jpg");
+  background-position: center top !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
 }
 
 h1,
