@@ -3,7 +3,7 @@ title: Optimizt บีบอัดไฟล์ก่อนอัพโหลด 
 description: กว่า 70% ของ Bandwidth ในการดาวน์โหลดเว็บไซต์ มาจากการโหลดไฟล์รูป มารู้จักเครื่องมือที่ช่วยลดขนาดรูปโดยที่สูญเสียรายละเอียดเพียงเล็กน้อยกัน
 date: 2023-08-21T01:27:13.922Z
 preview: ./optimizt.png
-draft: true
+draft: false
 tags:
   - optimization
   - image-compression
@@ -14,7 +14,7 @@ categories:
   - optimization
   - image-compression
   - performance
-lastmod: 2023-08-21T02:05:58.936Z
+lastmod: 2023-08-21T02:21:22.468Z
 ---
 
 ## รูปภาพกิน Bandwidth ของ Internet ไปกว่า 70%
