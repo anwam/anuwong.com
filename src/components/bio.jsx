@@ -31,7 +31,7 @@ const Bio = () => {
   const author = data.site.siteMetadata?.author
 
   return (
-    <div className="flex flex-col justify-center max-w-2xl gap-5 p-5 mx-auto my-5 prose rounded-xl bg-base-100/50 backdrop-blur-sm">
+    <div className="flex flex-col justify-center max-w-2xl gap-6 p-4 mx-auto my-5 prose rounded-xl bg-base-100/50 backdrop-blur-sm">
       {author?.name && (
         <p className="p-0 m-0">
           <strong className="text-primary">{author.name}</strong>
@@ -41,12 +41,12 @@ const Bio = () => {
         </p>
       )}
       <p className="p-0 m-0">
-        <CommandLineIcon className="inline w-6 h-6 mr-2 text-primary" />
+        <CommandLineIcon className="inline w-6 h-6 mr-4 text-primary" />
         Golang, NodeJS, Typescript, ReactJS, MongoDB, MySQL
       </p>
       {author?.workAt ? (
         <p className="p-0 m-0">
-          <BuildingOfficeIcon className="inline w-6 h-6 mr-2 text-primary" />
+          <BuildingOfficeIcon className="inline w-6 h-6 mr-4 text-primary" />
           {author?.workAt}
         </p>
       ) : null}

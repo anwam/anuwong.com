@@ -12,10 +12,11 @@ body {
 #gatsby-focus-wrapper {
   min-height: 100%;
   position: relative;
-  background-image: url("./images/bg-image.jpg");
-  background-position: center top !important;
-  background-attachment: fixed !important;
-  background-repeat: no-repeat !important;
+}
+
+#gatsby-focus-wrapper {
+  @apply bg-gradient-to-br from-pink-200 via-rose-400 to-red-300;
+  @apply lg:bg-[url("./images/bg-image.jpg")] lg:bg-top lg:bg-fixed lg:bg-no-repeat;
 }
 
 h1,

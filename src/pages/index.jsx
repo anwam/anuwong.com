@@ -23,7 +23,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <ol className="grid grid-flow-row grid-cols-12 gap-2 p-2 list-none md:gap-5 md:p-5">
+      <ol className="grid grid-flow-row grid-cols-12 gap-4 p-4 list-none md:gap-6 md:p-6">
         {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
           const subtitle = post.frontmatter.subtitle || ""
@@ -31,7 +31,7 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li
-              className="col-span-12 mx-auto transition-all shadow rounded-xl hover:cursor-pointer hover:ring-2 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20 bg-slate-100/75 backdrop-blur-lg"
+              className="col-span-12 mx-auto transition-all shadow rounded-xl hover:cursor-pointer hover:ring-4 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20 bg-gray-50/75 md:bg-gray-100/50 backdrop-blur-lg"
               key={post.fields.slug}
             >
               <Link to={post.fields.slug} itemProp="url">
@@ -41,19 +41,19 @@ const BlogIndex = ({ data, location }) => {
                     <GatsbyImage
                       image={getImage(post.frontmatter.preview)}
                       alt={post.frontmatter.description}
-                      className="hidden lg:col-span-4 lg:block bg-gray-50 rounded-tl-xl rounded-bl-xl"
-                      imgClassName="hidden lg:col-span-4 lg:block"
+                      className="col-span-12 lg:col-span-4 bg-gray-50 rounded-tl-xl rounded-tr-xl lg:rounded-tr-none lg:rounded-bl-xl"
+                      imgClassName="col-span-12 lg:col-span-4"
                       objectFit={"cover"}
                     />
                   ) : null}
                   <article
-                    className="col-span-12 p-2 prose lg:col-span-8 md:p-5 prose-headings:text-base prose-p:text-sm"
+                    className="col-span-12 p-4 prose lg:col-span-8 md:p-6 prose-headings:text-base prose-p:text-sm"
                     itemScope
                     itemType="http://schema.org/Article"
                   >
                     <div className="flex flex-col gap-3">
                       <section>
-                        <h2 className="m-0 mb-2 md:mb-5 text-primary">
+                        <h2 className="m-0 mb-4 md:mb-6 text-primary">
                           <span itemProp="headline">{title}</span>
                         </h2>
                         <p
@@ -65,12 +65,12 @@ const BlogIndex = ({ data, location }) => {
                           itemProp="description"
                         />
                         {subtitle && (
-                          <p className="px-3 py-2 text-lg font-extrabold rounded-md shadow bg-gray-50 text-accent">
+                          <p className="px-6 py-4 text-lg font-extrabold rounded-md shadow bg-gray-50 text-accent">
                             {subtitle}
                           </p>
                         )}
                         <small className="">{post.frontmatter.date}</small>
-                        <Tags className="mt-2" tags={tags} />
+                        <Tags className="mt-4" tags={tags} />
                       </section>
                     </div>
                   </article>

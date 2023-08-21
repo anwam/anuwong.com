@@ -50,9 +50,11 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "dev:lan": "gatsby develop --host 192.168.100.76",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
+    "serve:lan": "gatsby serve --host 192.168.100.76",
     "clean": "gatsby clean",
     "preview": "wrangler pages deploy ./public --project-name=anuwong-com --branch=preview",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

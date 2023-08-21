@@ -1,10 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import {
-  UserCircleIcon,
-  ArrowTopRightOnSquareIcon,
-  Bars3BottomRightIcon,
-} from "@heroicons/react/24/solid"
+import { UserCircleIcon } from "@heroicons/react/24/solid"
 import { StaticImage } from "gatsby-plugin-image"
 
 export default function Layout({ location, title, children }) {
@@ -23,9 +19,9 @@ export default function Layout({ location, title, children }) {
   }
 
   return (
-    <div className="grid h-full grid-flow-row grid-cols-12 gap-2 mx-auto auto-rows-min md:gap-5">
+    <div className="grid h-full grid-flow-row grid-cols-12 gap-4 mx-auto auto-rows-min md:gap-6">
       <header className="container sticky top-0 z-50 h-auto col-span-12 mx-auto mt-0 rounded-none shadow-lg md:top-5 md:mt-5 navbar md:rounded-xl backdrop-blur-sm">
-        <Link to="/" className="gap-2 ml-2 md:gap-5 md:ml-5 navbar-start">
+        <Link to="/" className="gap-4 ml-4 md:gap-6 md:ml-6 navbar-start">
           <StaticImage
             className="w-10 h-10 rounded-full"
             layout="fixed"
@@ -40,12 +36,12 @@ export default function Layout({ location, title, children }) {
         </Link>
         <div className="navbar-end">
           {/* dropdown */}
-          <details className="z-10 dropdown dropdown-end">
+          {/* <details className="z-10 dropdown dropdown-end">
             <summary className="btn rounded-box md:hidden hover:bg-secondary hover:shadow-lg hover:text-secondary-content hover:shadow-secondary/50">
               <Bars3BottomRightIcon className="w-6 h-6" />
             </summary>
             <ul
-              className={`relative gap-2 p-2 mt-1 shadow top-full w-fit rounded-box bg-base-100 dropdown-content menu menu-sm`}
+              className={`relative gap-4 p-4 mt-1 shadow top-full w-fit rounded-box bg-base-100 dropdown-content menu menu-sm`}
             >
               <li className="border border-secondary rounded-box hover:bg-secondary bg-gray-50">
                 <Link to="/about" partiallyActive>
@@ -69,8 +65,8 @@ export default function Layout({ location, title, children }) {
                 </a>
               </li>
             </ul>
-          </details>
-          <ul className="items-center hidden gap-2 font-bold bg-transparent md:flex md:flex-row menu menu-normal menu-horizontal">
+          </details> */}
+          <ul className="items-center hidden gap-4 font-bold bg-transparent md:flex md:flex-row menu menu-normal menu-horizontal">
             <li className="border border-secondary rounded-box bg-gray-50/75">
               <Link to="/about" partiallyActive>
                 <UserCircleIcon className="w-6 h-6" />
@@ -94,11 +90,11 @@ export default function Layout({ location, title, children }) {
           </ul>
         </div>
       </header>
-      <aside className="z-10 flex flex-col items-center self-start justify-center h-auto col-span-12 gap-2 md:sticky md:col-span-2 top-4 md:gap-5">
-        {/* <div className="w-full p-2 rounded-lg bg-base-300 h-72 animate-pulse">
+      {/* <aside className="flex flex-col items-center self-start justify-center h-auto col-span-12 gap-4 p-4 md:p-6 md:sticky md:col-span-2 top-4 md:gap-6">
+        <div className="w-full h-16 p-4 rounded-lg bg-base-300 md:h-72 animate-pulse">
           Advertisement
-        </div>
-        <div className="w-full p-2 rounded-lg bg-base-300 h-72 animate-pulse">
+        </div> */}
+      {/* <div className="w-full p-4 rounded-lg bg-base-300 h-72 animate-pulse">
           Advertisement
         </div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
@@ -107,15 +103,15 @@ export default function Layout({ location, title, children }) {
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div> */}
-      </aside>
-      <main className="container h-full col-span-12 mx-auto md:col-span-8">
+      {/* </aside> */}
+      <main className="container h-full col-span-12 mx-auto md:max-w-screen-md lg:max-w-screen-lg">
         {children}
       </main>
-      <aside className="z-10 flex flex-col items-center self-start justify-center h-auto col-span-12 gap-2 md:sticky md:col-span-2 top-4 md:gap-5">
-        {/* <div className="w-full p-2 rounded-lg bg-base-300 h-72 animate-pulse">
+      {/* <aside className="flex flex-col items-center self-start justify-center h-auto col-span-12 gap-4 md:sticky md:col-span-2 top-4 md:gap-6"> */}
+      {/* <div className="w-full p-4 rounded-lg bg-base-300 h-72 animate-pulse">
           Advertisement
         </div>
-        <div className="w-full p-2 rounded-lg bg-base-300 h-72 animate-pulse">
+        <div className="w-full p-4 rounded-lg bg-base-300 h-72 animate-pulse">
           Advertisement
         </div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
@@ -124,10 +120,10 @@ export default function Layout({ location, title, children }) {
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div> */}
-      </aside>
-      <footer className="container sticky bottom-0 z-50 h-auto col-span-12 p-2 mx-auto md:bottom-5 md:mb-5 md:rounded-xl">
+      {/* </aside> */}
+      <footer className="container sticky bottom-0 z-50 h-auto col-span-12 mx-auto md:bottom-6 md:mb-6 md:rounded-xl">
         <div className="container flex justify-center mx-auto">
-          <div className="flex flex-col items-center justify-center px-2 py-2 text-xs rounded-lg bg-base-100 md:px-5">
+          <div className="flex flex-col items-center justify-center px-4 py-4 text-xs rounded-lg bg-base-100 md:px-6">
             <div className="flex flex-row">
               <p>
                 © {new Date().getFullYear()}, Built with{" "}
