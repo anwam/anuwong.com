@@ -1,7 +1,8 @@
 import * as React from "react"
 
 const Tags = ({ tags, className }) => {
-  const tagList = tags?.split(",")?.map(tag => tag.trim()) || [""]
+  // const tagList = tags?.split(",")?.map(tag => tag.trim()) || [""]
+  const tagList = tags || [""]
 
   return (
     <div className={`flex flex-row flex-wrap gap-2 ${className}`}>

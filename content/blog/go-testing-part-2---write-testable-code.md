@@ -5,9 +5,11 @@ description: การเขียนโค้ดที่สามารถท�
 date: 2023-06-18T12:27:46.405Z
 preview: ./golang.png
 draft: false
-tags: golang,testing
+tags:
+  - golang
+  - testing
 categories: ""
-lastmod: 2023-08-20T08:36:35.753Z
+lastmod: 2023-08-21T02:06:10.073Z
 ---
 
 ## Prolouge

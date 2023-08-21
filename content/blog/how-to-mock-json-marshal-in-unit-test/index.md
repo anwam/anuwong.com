@@ -1,12 +1,13 @@
 ---
 title: Go Testing Part 1 - json.Unmarshal mock ยังไงอะ
-description: เมื่อถึงขั้นตอนทำ Unit Testing จะเจอปัญหาว่า เออเราจะทำยังไงให้ json.Unmarshal
-  มัน error ได้นะ
+description: เมื่อถึงขั้นตอนทำ Unit Testing จะเจอปัญหาว่า เออเราจะทำยังไงให้ json.Unmarshal มัน error ได้นะ
 date: 2023-02-04T08:42:51.220Z
 preview: ../golang.png
 draft: false
-tags: golang,testing
-lastmod: 2023-03-13T12:58:56.496Z
+tags:
+  - golang
+  - testing
+lastmod: 2023-08-21T02:07:10.572Z
 ---
 
 สำหรับการทำงานกับข้อมูลที่เป็น JSON ในภาษา Go แนวทางที่นิยมที่สุดก็คือการใช้ built-in package ที่ชื่อ `json` ในการ Encode / Decode ซึ่งโดยทั่วไปแล้วมักจะทำผ่านฟังก์ชั่น `json.Marshal` และ `json.Unmarshal` นั่นเอง
