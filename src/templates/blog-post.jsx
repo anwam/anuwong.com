@@ -29,12 +29,15 @@ const BlogPostTemplate = ({
           )}
         </div>
 
-        <div className="col-span-12 p-2 md:shadow-md md:p-5 bg-gray-50/50 rounded-xl backdrop-blur-md">
-          <header>
+        <div className="col-span-12 p-2 md:shadow-md md:p-5 bg-gray-50/30 rounded-xl backdrop-blur-lg">
+          <header className="px-2 md:px-5">
             <h1>{post.frontmatter.title}</h1>
             <span className="text-secondary">{post.frontmatter.date}</span>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section
+            className="px-2 md:px-5"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
           {post?.frontmatter?.tags !== "" ? (
             <Tags tags={post.frontmatter.tags} />
           ) : null}
