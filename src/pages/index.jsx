@@ -23,7 +23,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <ol className="grid grid-flow-row grid-cols-12 gap-4 p-4 list-none md:gap-6 md:p-6">
+      <ol className="grid grid-flow-row grid-cols-12 gap-4 px-4 list-none md:gap-6 md:p-0">
         {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
           const subtitle = post.frontmatter.subtitle || ""
@@ -31,7 +31,7 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <li
-              className="col-span-12 mx-auto transition-all shadow rounded-xl hover:cursor-pointer hover:ring-4 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20 bg-gray-50/75 md:bg-gray-100/50 backdrop-blur-lg"
+              className="col-span-12 mx-auto transition-all shadow rounded-xl hover:cursor-pointer hover:ring-4 hover:ring-red-400 md:hover:shadow-xl md:hover:scale-[1.0125] hover:z-20 bg-gray-100/75 md:bg-gray-100/75 backdrop-blur-lg"
               key={post.fields.slug}
             >
               <Link to={post.fields.slug} itemProp="url">
@@ -41,7 +41,7 @@ const BlogIndex = ({ data, location }) => {
                     <GatsbyImage
                       image={getImage(post.frontmatter.preview)}
                       alt={post.frontmatter.description}
-                      className="col-span-12 lg:col-span-4 bg-gray-50 rounded-tl-xl rounded-tr-xl lg:rounded-tr-none lg:rounded-bl-xl"
+                      className="col-span-12 bg-gray-100 lg:col-span-4 rounded-tl-xl rounded-tr-xl lg:rounded-tr-none lg:rounded-bl-xl"
                       imgClassName="col-span-12 lg:col-span-4"
                       objectFit={"cover"}
                     />

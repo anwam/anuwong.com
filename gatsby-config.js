@@ -11,14 +11,23 @@ module.exports = {
   siteMetadata: {
     title: `anuwong.com`,
     author: {
-      name: `Anuwong`,
-      summary: `a web developer who loves to learn new things. I write about web development, JavaScript, Golang, and other technologies.`,
-      workAt: "Bangkok",
+      name: `Anuwong Mongkudkornburee (Bill)`,
+      summary: `He/Him | Cat | Golang | ReactJS | NextJS | Tailwind CSS`,
+      workAt: "True Digital Group, Bangkok, Thailand",
+      hobbies: [
+        "📖 Reading",
+        "🎧 Music",
+        "🧑🏽‍💻 Coding",
+        "🎮 PlayStation",
+        "📸 Photography",
+        "🐈 Cat",
+      ],
     },
-    description: `my journey to become a better developer`,
+    description: `This blog is mainly about software development, programming, and technology. I write about what I learn and share my knowledge with others.`,
     siteUrl: `https://anuwong.com`,
     social: {
-      twitter: `swerbillionaire`,
+      twitter: `SwerBillionaire`,
+      email: "dev.anuwong@gmail.com",
     },
   },
   plugins: [

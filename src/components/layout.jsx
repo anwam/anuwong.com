@@ -66,15 +66,19 @@ export default function Layout({ location, title, children }) {
               </li>
             </ul>
           </details> */}
-          <ul className="items-center hidden gap-4 font-bold bg-transparent md:flex md:flex-row menu menu-normal menu-horizontal">
-            <li className="border border-secondary rounded-box bg-gray-50/75">
-              <Link to="/about" partiallyActive>
+          <ul className="flex flex-row items-center font-bold bg-transparent text-primary-content md:gap-4">
+            <li>
+              <Link
+                to="/about"
+                partiallyActive
+                className="btn btn-primary btn-sm md:btn-md"
+              >
                 <UserCircleIcon className="w-6 h-6" />
                 About
               </Link>
             </li>
-            <li className="border border-primary rounded-box bg-gray-50/75">
-              <a href="https://github.com/anwam">
+            <li className="hidden md:list-item">
+              <a href="https://github.com/anwam" className="btn btn-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -121,9 +125,9 @@ export default function Layout({ location, title, children }) {
         <div className="p-2 rounded-lg bg-base-300">Ads</div>
         <div className="p-2 rounded-lg bg-base-300">Ads</div> */}
       {/* </aside> */}
-      <footer className="container sticky bottom-0 z-50 h-auto col-span-12 mx-auto md:bottom-6 md:mb-6 md:rounded-xl">
+      <footer className="container sticky z-50 h-auto col-span-12 mx-auto mb-4 bottom-4 md:bottom-6 md:mb-6 md:rounded-xl">
         <div className="container flex justify-center mx-auto">
-          <div className="flex flex-col items-center justify-center px-4 py-4 text-xs rounded-lg bg-base-100 md:px-6">
+          <div className="flex flex-col items-center justify-center px-4 py-2 text-xs rounded-lg shadow bg-base-100 md:px-6">
             <div className="flex flex-row">
               <p>
                 © {new Date().getFullYear()}, Built with{" "}
@@ -133,7 +137,7 @@ export default function Layout({ location, title, children }) {
               </p>
             </div>
             <div className="flex flex-row">
-              <p>
+              <p className="hidden md:block">
                 Background Photo by{" "}
                 <a
                   className="text-blue-500"

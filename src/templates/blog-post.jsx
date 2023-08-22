@@ -15,7 +15,7 @@ const BlogPostTemplate = ({
   return (
     <Layout location={location} title={siteTitle}>
       <article
-        className="grid grid-flow-row grid-cols-12 gap-4 p-4 mx-auto mb-4 prose-sm prose md:p-0 md:mb-6 md:gap-6 prose-p:text-base prose-headings:text-lg md:prose-headings:text-xl lg:prose-headings:text-2xl lg:prose-p:text-xl prose-headings:text-primary md:prose-base max-w-none prose-blockquote:overflow-x-auto"
+        className="grid grid-flow-row grid-cols-12 gap-4 px-4 mx-auto mb-4 prose-sm prose md:p-0 md:mb-6 md:gap-6 prose-p:text-base prose-headings:text-lg md:prose-headings:text-xl lg:prose-headings:text-2xl lg:prose-p:text-xl prose-headings:text-primary md:prose-base max-w-none prose-blockquote:overflow-x-auto"
         itemType="http://schema.org/Article"
       >
         <div className="col-span-12 md:shadow-md md:p-6 bg-gray-50 rounded-xl">
@@ -29,22 +29,19 @@ const BlogPostTemplate = ({
           )}
         </div>
 
-        <div className="col-span-12 p-4 shadow-md md:p-6 bg-gray-100/50 md:bg-gray-100/40 rounded-xl backdrop-blur-lg">
-          <header className="px-4 md:px-6">
+        <div className="col-span-12 p-4 shadow-md md:p-6 bg-gray-100/75 md:bg-gray-100/75 rounded-xl backdrop-blur-lg">
+          <header>
             <h1>{post.frontmatter.title}</h1>
             <span className="text-secondary">{post.frontmatter.date}</span>
           </header>
-          <section
-            className="px-4 md:px-6"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
           {post?.frontmatter?.tags !== "" ? (
             <Tags tags={post.frontmatter.tags} />
           ) : null}
         </div>
       </article>
-      <nav className="px-4">
-        <ul className="flex flex-wrap justify-between gap-4 list-none md:gap-6">
+      <nav>
+        <ul className="flex flex-wrap justify-between gap-4 px-4 list-none md:px-0 md:gap-6">
           <li>
             {previous && (
               <Link

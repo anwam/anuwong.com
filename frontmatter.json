@@ -53,12 +53,6 @@
   ],
   "frontMatter.framework.id": "gatsby",
   "frontMatter.content.publicFolder": "static",
-  "frontMatter.taxonomy.tags": [
-    " content-writing",
-    " web-development",
-    "tech"
-  ],
-  "frontMatter.taxonomy.categories": [],
   "frontMatter.content.pageFolders": [
     {
       "title": "content",

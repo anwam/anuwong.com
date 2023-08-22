@@ -5,10 +5,11 @@ const Tags = ({ tags, className }) => {
   const tagList = tags || [""]
 
   return (
-    <div className={`flex flex-row flex-wrap gap-4 ${className}`}>
+    <div className={`flex flex-row flex-wrap gap-2 ${className}`}>
       {tagList?.map((tag, i) => (
         <span
-          className="px-4 py-1 text-sm transition-shadow rounded-full bg-primary text-primary-content hover:ring-4 ring-secondary"
+          // className="px-4 py-1 text-sm transition-shadow rounded-full bg-primary text-primary-content hover:ring-4 ring-secondary"
+          className="badge badge-accent"
           key={tag}
         >
           {tag}
